@@ -1,0 +1,47 @@
+---
+version: 2
+plan:
+  project-key: KP
+  key: LTP
+  name: Load Testing Plan
+  description: Performance Load Testing with k6
+stages:
+- Default Stage:
+    manual: false
+    final: false
+    jobs:
+    - Default Job
+Default Job:
+  key: JOB1
+  tasks:
+  - checkout:
+      force-clean-build: 'false'
+      description: Checkout Default Repository
+  - command:
+      executable: k6
+      argument: run scripts/test.js
+      description: Perform load testing
+  artifact-subscriptions: []
+repositories:
+- k6-example-bamboo:
+    scope: project
+triggers:
+- polling:
+    period: '180'
+branches:
+  create: manually
+  delete: never
+  link-to-jira: true
+notifications: []
+labels: []
+other:
+  concurrent-build-plugin: system-default
+---
+version: 2
+plan:
+  key: KP-LTP
+plan-permissions:
+- users:
+  - mike
+  permissions:
+  - view
