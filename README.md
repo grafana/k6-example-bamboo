@@ -2,7 +2,7 @@
 
 This is an example repo for how to setup k6 with [Atlassian Bamboo](https://www.atlassian.com/software/bamboo) CI/CD to build load testing into an automation flow.
 
-The full guide describing how to use this repository is located [here](https://blog.loadimpact.com/).
+The full guide describing how to use this repository is located [here](https://k6.io/blog/integrating-k6-with-bamboo/).
 
 ## Examples
 
